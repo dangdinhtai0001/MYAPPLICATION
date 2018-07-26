@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<HBox fx:id="backGround" stylesheets="@../CSS/Employee.css" xmlns="http://javafx.com/javafx/10.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeController">
+   <VBox>
+      <HBox.margin>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+      </HBox.margin>
+      <HBox alignment="CENTER">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </VBox.margin>
+         <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Tìm">
+            <HBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </HBox.margin>
+         </Label>
+         <TextField fx:id="txtFilter" prefHeight="25.0" prefWidth="179.0">
+            <HBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </HBox.margin>
+         </TextField>
+      </HBox>
+      <ScrollPane>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </VBox.margin>
+         <TableView fx:id="employeeTable" onMouseClicked="#clickItem" prefHeight="400.0" prefWidth="279.0">
+            <columns>
+               <TableColumn fx:id="employeeNumber" prefWidth="41.000030517578125" text="STT"/>
+               <TableColumn fx:id="employeeName" prefWidth="126.99996948242188" text="Tên"/>
+               <TableColumn fx:id="employeePhone" prefWidth="110.0" text="Số Điện Thoại"/>
+            </columns>
+         </TableView>
+      </ScrollPane>
+      <VBox style="-fx-background-color: #CCCCCC;">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="10.0"/>
+         </VBox.margin>
+         <HBox alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0"
+                    style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Thêm ">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/ADD.png"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0"
+                    style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Xóa">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/DELETE.jpg"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+               </HBox.margin>
+            </Button>
+         </HBox>
+         <HBox alignment="CENTER">
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0"
+                    style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Sửa">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/EDIT.png"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0"
+                    style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Tải lại">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/Refresh.png"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+               </HBox.margin>
+            </Button>
+         </HBox>
+      </VBox>
+   </VBox>
+   <VBox alignment="CENTER" style="-fx-border-color: black;">
+      <HBox.margin>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+      </HBox.margin>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 40px; -fx-font-weight: bold;"
+            text="THÔNG TIN CHI TIẾT" underline="true">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </VBox.margin>
+         <effect>
+            <Glow/>
+         </effect>
+      </Text>
+      <HBox>
+         <VBox.margin>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="10.0"/>
+         </VBox.margin>
+         <VBox alignment="CENTER">
+            <HBox.margin>
+               <Insets bottom="20.0" left="20.0" right="30.0" top="20.0"/>
+            </HBox.margin>
+            <ImageView fx:id="employeeImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true">
+               <Image url="@../Icon/13_profile-512.png"/>
+            </ImageView>
+            <VBox alignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Tên">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="80.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblName" text="&quot;Employee.Name&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Giới Tính">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="42.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblGender" text="&quot;Employee.Gender&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Ngày Sinh">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="33.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblDateOfBirth" text="&quot;Employee.dateOfBirth&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Địa Chỉ">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="55.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblAddress" text="&quot;Employee.Address&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+            </VBox>
+            <HBox>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </VBox.margin>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                     style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Số Điện Thoại">
+                  <HBox.margin>
+                     <Insets bottom="10.0" left="10.0" right="15.0" top="10.0"/>
+                  </HBox.margin>
+               </Text>
+               <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+               <Label fx:id="lblPhone" text="&quot;Employee.PhoneNumber&quot;">
+                  <HBox.margin>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                  </HBox.margin>
+               </Label>
+            </HBox>
+            <Line endX="100.0" startX="-200.0"/>
+         </VBox>
+         <VBox alignment="CENTER">
+            <HBox.margin>
+               <Insets bottom="20.0" left="30.0" right="20.0" top="20.0"/>
+            </HBox.margin>
+            <VBox alignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Facebook">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="45.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblFacebook" text="&quot;Employee.Facebook&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Tài Khoản">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="42.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblUsername" text="&quot;Employee.Username&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="isAdmin" disable="true" mnemonicParsing="false"
+                            style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Admin">
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </CheckBox>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Mật Khẩu">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="45.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblPassword" text="&quot;Employee.password&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+            </VBox>
+            <VBox alignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Ngày Bắt Đầu">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="15.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0">
+                     <HBox.margin>
+                        <Insets/>
+                     </HBox.margin>
+                  </Line>
+                  <Label fx:id="lblDateOfBegin" text="&quot;Employee.dateOfBegin&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Ngày Kết Thúc">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblDateOfEnd" text="&quot;Employee.dateOfEnd&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Thưởng Tháng ">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="5.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblBonus" text="&quot;Employee.Bonus&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Phạt Tháng">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="33.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblPunish" text="&quot;Employee.Punish&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" startX="-200.0"/>
+               <HBox layoutX="20.0" layoutY="193.0">
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Lương">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="68.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblSalary" text="&quot;Employee.Salary&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" layoutX="216.0" layoutY="223.0" startX="-200.0"/>
+               <HBox>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Ghi Chú">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="58.0" top="10.0"/>
+                     </HBox.margin>
+                  </Text>
+                  <Line endX="-100.0" endY="39.29289245605469" startX="-100.0"/>
+                  <Label fx:id="lblSalary1" text="&quot;Employee.Description&quot;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                     </HBox.margin>
+                  </Label>
+               </HBox>
+               <Line endX="100.0" layoutX="244.0" layoutY="275.0" startX="-200.0"/>
+            </VBox>
+         </VBox>
+      </HBox>
+   </VBox>
+</HBox>

@@ -1,0 +1,23 @@
+.hover-blue:hover{
+    -fx-background-color: #99FFFF;
+}
+
+.hover-blue:hover Text{
+    -fx-fill: #333333 !important;
+}
+
+.hover-border-right:hover{
+    -fx-border-color: #2196F3;
+    -fx-border-width: 0px 4px 0px 0px;
+}
+
+.ImageView:hover{
+    -fx-cursor: hand ;
+}
+
+.text-field {
+    -fx-prompt-text-fill: black;
+    -fx-background-color : transparent;
+    -fx-border-width : 0px 0px 2px 0px;
+    -fx-border-color : black;
+}

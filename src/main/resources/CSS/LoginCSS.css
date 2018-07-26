@@ -1,0 +1,17 @@
+
+.text-field {
+    -fx-prompt-text-fill: black;
+    -fx-background-color : transparent;
+    -fx-border-width : 0px 0px 1px 0px;
+    -fx-border-color : black;
+}
+
+.button{
+    -fx-background-radius : 100;
+    -fx-text-fill : black;
+    -fx-font-weight : Bold;
+}
+
+#inputPane{
+    -fx-background-color:white;
+}

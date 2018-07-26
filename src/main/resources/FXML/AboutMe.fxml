@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.AboutMeController">
+   <HBox>
+      <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </HBox.margin>
+         <Image url="@../Icon/information-icon.png"/>
+      </ImageView>
+      <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="ABOUT ME" textAlignment="CENTER"
+             underline="true">
+         <HBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </HBox.margin>
+      </Label>
+   </HBox>
+   <HBox alignment="CENTER">
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </HBox.margin>
+         <Image url="@../Icon/Logo.png"/>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 60px;" text="MY APPLICATION"
+             textAlignment="CENTER">
+         <HBox.margin>
+            <Insets bottom="10.0" left="10.0" right="50.0" top="10.0"/>
+         </HBox.margin>
+         <effect>
+            <Glow/>
+         </effect>
+      </Label>
+   </HBox>
+   <HBox alignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My Application Version 1.0.0 ">
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+         </HBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bắt đầu dự án : 30/06/2018 , Kết thúc dự án :--/--/----">
+         <HBox.margin>
+            <Insets bottom="20.0" left="50.0" right="20.0" top="20.0"/>
+         </HBox.margin>
+      </Text>
+   </HBox>
+   <Line endX="600.0" startX="-100.0"/>
+   <HBox alignment="CENTER_LEFT">
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+         </HBox.margin>
+         <Image url="@../Icon/Team.jpg"/>
+      </ImageView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+            text="NGƯỜI THỰC HIỆN" underline="true">
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+         </HBox.margin>
+      </Text>
+   </HBox>
+   <HBox>
+      <ImageView fitHeight="270.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets bottom="30.0" left="80.0" right="30.0" top="30.0"/>
+         </HBox.margin>
+         <Image url="@../BackGround/45.jpg"/>
+      </ImageView>
+      <VBox>
+         <HBox.margin>
+            <Insets bottom="30.0" left="50.0" right="30.0" top="30.0"/>
+         </HBox.margin>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15px;"
+               text="* Viết cơ sở dữ liệu (Thằng trong ảnh)">
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+         </Text>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15px;"
+               text="*Thiết kế giao diện (Thằng trong ảnh)">
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+         </Text>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15px;"
+               text="*Thiết kế chương trình (Thằng trong ảnh)">
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+         </Text>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15px;"
+               text="*Viết mã nguồn (Thằng trong ảnh nốt :v)">
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+         </Text>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15px;"
+               text="*Nói chung là thằng trong ảnh làm tất :v">
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+         </Text>
+         <HBox>
+            <Button fx:id="btnFacebook" mnemonicParsing="false" onAction="#loadFacebook"
+                    style="-fx-background-radius: 10;">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/facebook.png"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnGitHub" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                    onAction="#loadGitHub" style="-fx-background-radius: 10;">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/GitHub.png"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnInstagram" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                    onAction="#loadInstagram" style="-fx-background-radius: 10;">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/instagram.png"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnYouTube" layoutX="71.0" layoutY="10.0" mnemonicParsing="false"
+                    onAction="#loadYouTube" style="-fx-background-radius: 10;">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Icon/YouTube-icon.png"/>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+               </HBox.margin>
+            </Button>
+         </HBox>
+      </VBox>
+   </HBox>
+   <Line endX="600.0" startX="-100.0"/>
+   <HBox alignment="CENTER_LEFT">
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0"/>
+         </HBox.margin>
+         <Image url="@../Icon/Book.png"/>
+      </ImageView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+            text="NGUỒN THAM KHẢO" underline="true">
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+         </HBox.margin>
+      </Text>
+   </HBox>
+   <VBox alignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Đấng tối cao  : https://www.google.com/">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Đấng vô đối, đấng cứu thế : https://stackoverflow.com/">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0"
+            text="Kênh You tube: https://www.youtube.com/channel/UCCevniKeJmA0MI8dHcZ7t9Q">
+         <VBox.margin>
+            <Insets bottom="50.0" left="10.0" right="10.0" top="10.0"/>
+         </VBox.margin>
+      </Text>
+   </VBox>
+</VBox>
