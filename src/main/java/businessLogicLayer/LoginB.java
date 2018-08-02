@@ -11,7 +11,7 @@ public class LoginB {
     private static Session session;
 
     public LoginB() throws SQLException, ClassNotFoundException {
-        if (this.employeeDA == null) {
+        if (employeeDA == null) {
             employeeDA = new EmployeeDA();
         }
     }
@@ -21,12 +21,23 @@ public class LoginB {
         if (employee == null) {
             return false;
         } else {
-            this.session = new Session(employee.getUsername(),employee.isAdmin());
+            session = new Session(employee.getUsername(), employee.isAdmin());
             return true;
         }
     }
 
     public Session getSession() {
         return session;
+    }
+
+    public boolean checkDuplicatedAccount(String username) {
+        try {
+            return employeeDA.checkDuplicatedAccount(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

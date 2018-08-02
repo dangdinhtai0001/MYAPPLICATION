@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../CSS/EmployeeDetails.css"
+      xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controller.EmployeeDetailsController">
+    <children>
+        <Label fx:id="title" style="-fx-font-size: 25px; -fx-font-weight: bold;" text="TITTLE" underline="true">
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="10.0"/>
+            </VBox.margin>
+        </Label>
+        <HBox fx:id="hBoxImage" alignment="BOTTOM_CENTER">
+            <children>
+                <ImageView fx:id="validateImage" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </ImageView>
+                <ImageView fx:id="employeeImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0"/>
+                    </HBox.margin>
+                    <effect>
+                        <Reflection bottomOpacity="0.13" fraction="0.24" topOpacity="0.51"/>
+                    </effect>
+                    <image>
+                        <Image url="@../Icon/13_profile-512.png"/>
+                    </image>
+                </ImageView>
+                <Button mnemonicParsing="false" onAction="#openImage" text="Open">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/open.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </VBox.margin>
+        </HBox>
+        <StackPane>
+            <VBox.margin>
+                <Insets bottom="10.0" left="15.0" right="15.0" top="15.0"/>
+            </VBox.margin>
+            <children>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0"
+                      style="-fx-background-color: #333333; -fx-opacity: 0.1;"/>
+                <HBox alignment="CENTER">
+                    <children>
+                        <VBox>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="20.0" right="50.0" top="20.0"/>
+                            </HBox.margin>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin đăng nhập">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Line endX="188.5" startX="-100.0">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0"/>
+                                    </VBox.margin>
+                                </Line>
+                                <VBox>
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                    <children>
+                                        <HBox fx:id="hBoxAccount">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tài Khoản">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="34.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <TextField fx:id="txtAccount" promptText="--Có thể trống">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <ImageView fx:id="validateAccount" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                                <CheckBox fx:id="checkBoxAdmin" mnemonicParsing="false" text="ADMIN">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </CheckBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox fx:id="hBoxPassword">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mật Khẩu">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="35.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <PasswordField fx:id="txtPassword">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </PasswordField>
+                                                <ImageView fx:id="validatePassword" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin công việc">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Line endX="188.5" layoutX="111.0" layoutY="47.0" startX="-100.0"/>
+                                <HBox fx:id="hBoxDateOfBegin">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày bắt đầu">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="14.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                        <DatePicker fx:id="txtDateOfBegin" editable="false" showWeekNumbers="true">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </DatePicker>
+                                        <ImageView fx:id="validateDateOfBegin" fitHeight="20.0" fitWidth="20.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="10.0"/>
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox fx:id="hBoxDateOfEnd">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày kết thúc">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                        <DatePicker fx:id="txtDateOfEnd" editable="false" showWeekNumbers="true">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </DatePicker>
+                                        <ImageView fx:id="validateDateOfEnd" fitHeight="20.0" fitWidth="20.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="hBoxSalary">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lương">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="50.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                        <ComboBox fx:id="comboSalary" prefWidth="150.0" promptText="Lương">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </ComboBox>
+                                        <ImageView fx:id="validateSalary" fitHeight="20.0" fitWidth="20.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="30.0" layoutY="30.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thông Tin Cá Nhân">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Line endX="188.5" startX="-100.0">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0"/>
+                                    </VBox.margin>
+                                </Line>
+                                <VBox>
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                    <children>
+                                        <HBox fx:id="hBoxName">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="65.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <TextField fx:id="txtName">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <ImageView fx:id="validateName" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox fx:id="hBoxGender">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Giới Tính">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="36.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <ComboBox fx:id="comboGender" prefWidth="150.0" promptText="Giới Tính"
+                                                          visibleRowCount="3">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ComboBox>
+                                                <ImageView fx:id="validateGender" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox fx:id="hBoxDateOfBirth" layoutX="10.0" layoutY="10.0">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày Sinh">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="30.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <DatePicker fx:id="txtDateOfBirth" editable="false"
+                                                            showWeekNumbers="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </DatePicker>
+                                                <ImageView fx:id="validateDateOfBirth" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox fx:id="hBoxAddress" layoutX="10.0" layoutY="100.0">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Địa Chỉ">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="47.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <TextField fx:id="txtAddress">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <ImageView fx:id="validateAddress" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox fx:id="hBoxPhone" layoutX="10.0" layoutY="145.0">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số Điện Thoại">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="12.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <TextField fx:id="txtPhone" promptText="(+84)">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <ImageView fx:id="validatePhone" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox fx:id="hBoxFacebook" layoutX="10.0" layoutY="190.0">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Facebook">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="35.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </Text>
+                                                <TextField fx:id="txtFacebook" promptText="https://www.facebook.com/">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <ImageView fx:id="validateFacebook" fitHeight="20.0" fitWidth="20.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <HBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="50.0" right="20.0" top="20.0"/>
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </StackPane>
+        <HBox alignment="BOTTOM_RIGHT">
+            <children>
+                <Button mnemonicParsing="false" onAction="#submit" prefWidth="100.0" text="OK">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/submit.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#cancel" prefWidth="100.0" text="Cancel">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/Cancel.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</VBox>

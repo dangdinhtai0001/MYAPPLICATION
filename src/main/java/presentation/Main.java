@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
         primaryStage.getIcons().add(new Image("Icon/Logo.png"));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setScene(new Scene(root, 400, 600));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

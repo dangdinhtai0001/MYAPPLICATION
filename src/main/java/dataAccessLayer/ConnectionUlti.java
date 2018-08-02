@@ -1,20 +1,31 @@
 package dataAccessLayer;
 
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class ConnectionUlti {
-    static Connection connection = null;
+    private static Connection connection = null;
+    private static Properties properties = null;
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         if (connection == null) {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url= "jdbc:mysql://localhost/myshop?useUnicode=yes&characterEncoding=UTF-8";
-            String user="root";
-            String password="";
-            connection = DriverManager.getConnection(url, user, password);
+            try {
+                properties = Config.getProperties();
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String url = properties.getProperty("urlDatabase");
+                String user = properties.getProperty("userDatabase");
+                String password = properties.getProperty("passwordDatabase");
+                connection = DriverManager.getConnection(url, user, password);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                Config.closeInputStream();
+            }
+
         }
         return connection;
     }

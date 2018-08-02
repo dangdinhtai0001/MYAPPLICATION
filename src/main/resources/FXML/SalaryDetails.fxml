@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../CSS/SalaryDetails.css"
+      xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controller.SalaryDetailsController">
+    <children>
+        <HBox onMouseDragged="#menuDragged" onMousePressed="#menuPressed" style="-fx-background-color: gray;">
+            <children>
+                <HBox>
+                    <children>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" onMouseClicked="#minWindow" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                            <effect>
+                                <Glow/>
+                            </effect>
+                            <image>
+                                <Image url="@../Icon/GreenCircle.jpg"/>
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="35.0" layoutY="10.0"
+                                   onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                            <effect>
+                                <Glow/>
+                            </effect>
+                            <image>
+                                <Image url="@../Icon/RedCircle.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="25.0" prefWidth="617.0" style="-fx-background-color: gray;">
+                    <children>
+                        <Label fx:id="title" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Thêm Mức Lương"/>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/Money.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+        <VBox style="-fx-border-color: black; -fx-border-radius: 10px; -fx-border-width: 2px;">
+            <children>
+                <VBox alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER">
+                            <children>
+                                <ImageView fitHeight="120.0" fitWidth="120.0" nodeOrientation="RIGHT_TO_LEFT"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Icon/Minions.gif"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="273.0" layoutY="10.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Icon/Minions2.gif"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="333.0" layoutY="10.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Icon/Minions.gif"/>
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+                              text="CHI TIẾT MỨC LƯƠNG" underline="true">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </Text>
+                    </children>
+                </VBox>
+                <HBox>
+                    <children>
+                        <VBox prefWidth="170.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                      style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Tên mức lương">
+                                    <VBox.margin>
+                                        <Insets bottom="15.0" left="30.0" right="10.0" top="15.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Text layoutX="10.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Số Tiền">
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="30.0" right="15.0" top="20.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Text layoutX="10.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Ghi Chú">
+                                    <VBox.margin>
+                                        <Insets bottom="25.0" left="30.0" right="20.0" top="25.0"/>
+                                    </VBox.margin>
+                                </Text>
+                            </children>
+                        </VBox>
+                        <VBox>
+                            <children>
+                                <HBox fx:id="hBoxName">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                    <children>
+                                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="436.0">
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="10.0" top="5.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <ImageView fx:id="validateName" fitHeight="20.0" fitWidth="20.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="5.0" top="5.0"/>
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="hBoxMoney" layoutX="20.0" layoutY="20.0">
+                                    <children>
+                                        <TextField fx:id="txtMoney" prefHeight="25.0" prefWidth="436.0">
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="10.0" top="5.0"/>
+                                            </HBox.margin>
+                                        </TextField>
+                                        <ImageView fx:id="validateMoney" fitHeight="20.0" fitWidth="20.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="5.0" top="5.0"/>
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox fx:id="hBoxDescription">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                    <children>
+                                        <ScrollPane>
+                                            <content>
+                                                <TextArea fx:id="txtDescription" prefHeight="89.0" prefWidth="436.0">
+                                                    <padding>
+                                                        <Insets bottom="5.0" left="5.0" top="5.0"/>
+                                                    </padding>
+                                                </TextArea>
+                                            </content>
+                                        </ScrollPane>
+                                        <ImageView fx:id="validateDescription" fitHeight="20.0" fitWidth="20.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="5.0" top="5.0"/>
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox alignment="BOTTOM_RIGHT">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#submit" prefWidth="100.0" text="OK">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Icon/submit.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#cancel" prefWidth="100.0" text="Cancel">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Icon/Cancel.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+        </VBox>
+    </children>
+</VBox>

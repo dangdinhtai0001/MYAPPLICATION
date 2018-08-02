@@ -11,14 +11,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import presentation.Notification;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
-import static javafx.stage.StageStyle.TRANSPARENT;
 
 public class LoginController {
     private static LoginB loginB;
@@ -26,8 +27,15 @@ public class LoginController {
     private String username , password;
     private boolean isAdmin;
 
+    @FXML
+    private ImageView loginIcon;
+    @FXML
+    private VBox mainVbox;
+    @FXML
+    private HBox menuBar;
+
     public LoginController() {
-        if (this.loginB == null) {
+        if (loginB == null) {
             try {
                 loginB = new LoginB();
             } catch (SQLException e) {
@@ -51,7 +59,7 @@ public class LoginController {
     void login(ActionEvent event) {
         try {
             if (loginB.checkLogin(txtUsername.getText(), txtPassword.getText())) {
-//                Notification.messages("", "Login complete ");
+//                Notification.informationAlert("", "Login complete ");
                 //Load main lên
                 this.username = loginB.getSession().getSessionName();
                 this.password = loginB.getSession().getPassword();
@@ -60,9 +68,11 @@ public class LoginController {
                 //Ẩn login đi
                 ((Node) event.getSource()).getScene().getWindow().hide();
             } else {
-                Notification.messages("", "Login failed ");
+                Notification.informationAlert("", "Login failed ");
             }
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -70,11 +80,11 @@ public class LoginController {
     private void loadMain(){
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainVer2.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.getIcons().add(new Image("Icon/Logo.png"));
-            stage.initStyle(TRANSPARENT);
+            stage.setTitle("MY APPLICATION");
             Scene scene = new Scene(root);
             stage.setScene(scene);
 

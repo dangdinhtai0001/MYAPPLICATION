@@ -31,6 +31,7 @@ public class ProductDA {
                         resultSet.getString(1), resultSet.getString(5), resultSet.getString(7),
                         resultSet.getString(8), resultSet.getString(2), resultSet.getString(3));
             }
+        statement.close();
         return product;
     }
 }

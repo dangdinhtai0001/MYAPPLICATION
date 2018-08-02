@@ -3,6 +3,7 @@ package controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import presentation.Notification;
@@ -25,25 +27,36 @@ import java.util.Calendar;
 
 public class MainController {
     private double x, y;
+    //để làm ẩn đi menu bên trái , main là để khi menu đi thì main đi theo
+    private TranslateTransition openMenu, closeMenu;
 
     private void loadScene(String fxmlUrl) {
         Parent parent;
         try {
             parent = FXMLLoader.load(getClass().getResource(fxmlUrl));
-//            borderPane.setCenter(parent);
             scrollPane.setContent(parent);
         } catch (IOException e) {
-//            e.printStackTrace();
             Notification.showErors(e, "MainController.loadScene");
         }
     }
 
+    @FXML
+    private StackPane mainPane;
+
+    @FXML
+    private ScrollPane menu;
+
+    @FXML
+    private ImageView timeIcon;
+
+    @FXML
+    private ImageView menuIcon;
 
     @FXML
     private ScrollPane scrollPane;
 
     @FXML
-    private BorderPane borderPane;
+    private BorderPane rootPane;
 
     @FXML
     private Label currentTime;
@@ -66,6 +79,12 @@ public class MainController {
         timeline.play();
 
 //        System.out.println("OK");
+
+
+        //tạo các đối tượng quản lí đi chuyển
+        Duration duration = new Duration(350);
+        openMenu = new TranslateTransition(duration, menu);
+        closeMenu = new TranslateTransition(duration, menu);
     }
 
 
@@ -103,16 +122,14 @@ public class MainController {
         stage.setFullScreen(true);
     }
 
-
     @FXML
     void loadAboutMe(MouseEvent event) {
         loadScene("/FXML/AboutMe.fxml");
     }
 
-
     @FXML
     void loadEmployee(MouseEvent event) {
-        loadScene("/FXML/Employee.fxml");
+        loadScene("/FXML/EmployeeVer2.fxml");
     }
 
     @FXML
@@ -123,14 +140,31 @@ public class MainController {
     @FXML
     private ImageView sessionIcon;
 
-    public void setSessionIcon(Image image){
+    void setSessionIcon(Image image) {
         sessionIcon.setImage(image);
     }
 
     @FXML
     private Label session;
 
-    public void setSession(String session){
+    void setSession(String session) {
         this.session.setText(session);
     }
+
+    @FXML
+    void menuClicked(MouseEvent event) {
+        //Ban đầu cả 2 thằng này do đc set trước nên đều ở tọa đọ x = 0.0
+        if (menu.getTranslateX() == 0) {
+            //Set cho 2 thằng ni về vị trí vừa đủ để ẩn menu đi
+            closeMenu.setToX(-menu.getWidth());
+            closeMenu.play();
+
+        } else {
+            //trở về dạng ban đầu
+            openMenu.setToX(0);
+            openMenu.play();
+        }
+
+    }
+
 }

@@ -3,14 +3,14 @@ package entity;
 import java.util.Date;
 
 public class Employee extends Human {
-    private int basicSalary , bonus, punish;
+    private int basicSalary, bonus, punish, salaryID;
     private Date dateOfBirth, dateOfbegin , dateOfEnd;
     private String  imageLink,username , password,phoneNumber,facebook;
     private boolean isAdmin ;
 
     public Employee(int id, String name, String gender, String description, String address, String phoneNumber,
                     String facebook, int basicSalary, int bonus, int punish, Date dateOfBirth, Date dateOfbegin,
-                    Date dateOfEnd, String imageLink, String username, String password, boolean isAdmin) {
+                    Date dateOfEnd, String imageLink, String username, String password, boolean isAdmin, int salaryID) {
         super(id, name, gender, description, address, phoneNumber, facebook);
         this.basicSalary = basicSalary;
         this.bonus = bonus;
@@ -24,6 +24,7 @@ public class Employee extends Human {
         this.isAdmin = isAdmin;
         this.phoneNumber = phoneNumber;
         this.facebook = facebook;
+        this.salaryID = salaryID;
     }
 
     public Employee(int id, String username, String password, boolean isAdmin) {
@@ -121,5 +122,9 @@ public class Employee extends Human {
 
     public String getAddress() {
         return address;
+    }
+
+    public int getSalaryID() {
+        return salaryID;
     }
 }
