@@ -1,6 +1,6 @@
 package controller;
 
-import businessLogicLayer.FinanceB;
+import businessLogicLayer.SalaryB;
 import entity.Salary;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,40 +24,39 @@ import presentation.Notification;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Map;
 
-
-public class FinanceController {
-    private FinanceB financeB;
+public class SalaryController {
+    private SalaryB salaryB;
     private ObservableList<Salary> listSalary;
     private String selectedSalaryName, selectedSalaryMoney, selectedDescription;
     private int salaryId;
     private boolean isUpdateSalary;
+    private Integer percentage;
+    @FXML
+    private TextField salaryTableFilter;
+    @FXML
+    private TableView<Salary> salaryTable;
+    @FXML
+    private TableColumn<Salary, String> salaryNumberCol;
+    @FXML
+    private TableColumn<Salary, String> salaryNameCol;
+    @FXML
+    private TableColumn<Salary, Integer> salaryBasicCol;
+    @FXML
+    private TableColumn<Salary, String> salaryDescriptionCol;
+    @FXML
+    private PieChart salaryPieChart;
+    @FXML
+    private Label pieChartLabel;
 
-    public FinanceController() {
+    public SalaryController() {
         try {
-            financeB = new FinanceB();
+            salaryB = new SalaryB();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private TextField salaryTableFilter;
-
-    @FXML
-    private TableView<Salary> salaryTable;
-
-    @FXML
-    private TableColumn<Salary, String> salaryNumberCol;
-
-    @FXML
-    private TableColumn<Salary, String> salaryNameCol;
-
-    @FXML
-    private TableColumn<Salary, Integer> salaryBasicCol;
-
-    @FXML
-    private TableColumn<Salary, String> salaryDescriptionCol;
 
     @FXML
     void initialize() {
@@ -66,7 +67,7 @@ public class FinanceController {
             salaryBasicCol.setCellValueFactory(new PropertyValueFactory<>("basic"));
             salaryDescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
 
-            listSalary = financeB.getAllSalary();
+            listSalary = salaryB.getAllSalary();
             salaryTable.setItems(listSalary);
             salaryTable.setEditable(true);
 
@@ -86,7 +87,7 @@ public class FinanceController {
             long count = (long) salaryTable.getColumns().size();
             for (int i = 0; i < salaryTable.getItems().size(); i++) {
                 for (int j = 0; j < count; j++) {
-                    String entry = "" + salaryTable.getColumns().get(j).getCellData(i);
+                    String entry = String.valueOf(salaryTable.getColumns().get(j).getCellData(i));
                     if (entry.toLowerCase().contains(value)) {
                         subentries.add(salaryTable.getItems().get(i));
                         break;
@@ -97,12 +98,36 @@ public class FinanceController {
         });
 
 
+        //Đẩy dữ liệu lên pie Chart
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+
+        percentage = 0;
+        for (Salary salary : listSalary) {
+//            System.out.println(salary.getName() + "\n" +(Integer) getPieData().get(salary.getId()) );
+            if (getPieData().get(salary.getId()) == null) {
+                pieChartData.add(new PieChart.Data(salary.getName(), 0));
+            } else {
+                pieChartData.add(new PieChart.Data(salary.getName(), (Integer) getPieData().get(salary.getId())));
+                percentage += (Integer) getPieData().get(salary.getId());
+            }
+        }
+        salaryPieChart.setData(pieChartData);
+
+        // sự kiện pieChart
+        for (final PieChart.Data data1 : salaryPieChart.getData()) {
+            data1.getNode().addEventHandler(MouseEvent.ANY,
+                    e -> pieChartLabel.setText(String.valueOf((data1.getPieValue() / percentage) * 100) + "%")
+            );
+        }
+    }
+
+    private Map<Number, Number> getPieData() {
+        return salaryB.countEmployee();
     }
 
 
     @FXML
     void addSalary(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
         Stage stage = loadSalaryDetails();
         stage.show();
         stage.setOnHiding(event1 -> refreshSalaryTable());
@@ -121,19 +146,13 @@ public class FinanceController {
     private void refreshSalaryTable() {
 //        System.out.println("Refresh");
         try {
-            listSalary = financeB.getAllSalary();
+            listSalary = salaryB.getAllSalary();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         salaryTable.getItems().clear();
 //        salaryTable.refresh();
         salaryTable.setItems(listSalary);
-    }
-
-
-    @FXML
-    void refreshSalary(ActionEvent event) {
-        refreshSalaryTable();
     }
 
     @FXML
@@ -187,5 +206,4 @@ public class FinanceController {
             }
         }
     }
-
 }

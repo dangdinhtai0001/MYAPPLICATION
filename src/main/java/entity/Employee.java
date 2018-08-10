@@ -3,14 +3,15 @@ package entity;
 import java.util.Date;
 
 public class Employee extends Human {
-    private int basicSalary, bonus, punish, salaryID;
+    private int basicSalary, bonus, punish, salaryID, contactID;
     private Date dateOfBirth, dateOfbegin , dateOfEnd;
     private String  imageLink,username , password,phoneNumber,facebook;
     private boolean isAdmin ;
 
     public Employee(int id, String name, String gender, String description, String address, String phoneNumber,
                     String facebook, int basicSalary, int bonus, int punish, Date dateOfBirth, Date dateOfbegin,
-                    Date dateOfEnd, String imageLink, String username, String password, boolean isAdmin, int salaryID) {
+                    Date dateOfEnd, String imageLink, String username, String password, boolean isAdmin, int salaryID,
+                    int contactID) {
         super(id, name, gender, description, address, phoneNumber, facebook);
         this.basicSalary = basicSalary;
         this.bonus = bonus;
@@ -25,6 +26,7 @@ public class Employee extends Human {
         this.phoneNumber = phoneNumber;
         this.facebook = facebook;
         this.salaryID = salaryID;
+        this.contactID = contactID;
     }
 
     public Employee(int id, String username, String password, boolean isAdmin) {
@@ -36,24 +38,8 @@ public class Employee extends Human {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name=" + name +
-                ", gender=" + gender +
-                ", description=" + description +
-                ", basicSalary=" + basicSalary +
-                ", bonus=" + bonus +
-                ", punish=" + punish +
-                ", dateOfBirth=" + dateOfBirth +
-                ", dateOfbegin=" + dateOfbegin +
-                ", dateOfEnd=" + dateOfEnd +
-                ", imageLink='" + imageLink + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", facebook='" + facebook + '\'' +
-                ", isAdmin=" + isAdmin +
-                '}';
+        return this.id + "-" + this.name;
+
     }
 
     public String getName() {
@@ -126,5 +112,9 @@ public class Employee extends Human {
 
     public int getSalaryID() {
         return salaryID;
+    }
+
+    public int getContactID() {
+        return contactID;
     }
 }

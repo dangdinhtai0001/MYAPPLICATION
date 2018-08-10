@@ -12,6 +12,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,8 +25,8 @@ import java.sql.SQLException;
 
 public class LoginController {
     private static LoginB loginB;
-    private double x , y ;
-    private String username , password;
+    private double x, y;
+    private String username, password;
     private boolean isAdmin;
 
     @FXML
@@ -72,12 +74,11 @@ public class LoginController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
-    private void loadMain(){
+
+    private void loadMain() {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainVer2.fxml"));
@@ -88,13 +89,13 @@ public class LoginController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
 
-            MainController mainController = loader.getController() ;
+            MainController mainController = loader.getController();
             mainController.setSession(username);
-            Image image ;
-            if(isAdmin ){
+            Image image;
+            if (isAdmin) {
                 image = new Image("/Icon/ADMIN.png");
 
-            }else {
+            } else {
                 image = new Image("/Icon/user.png");
 
             }
@@ -102,10 +103,34 @@ public class LoginController {
             stage.show();
         } catch (IOException e) {
 //            e.printStackTrace();
-            Notification.showErors(e,"Login Controller - Load URL");
+            Notification.showErors(e, "Login Controller - Load URL");
         }
 
     }
+
+    @FXML
+    void keyBoardPressed(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            try {
+                if (loginB.checkLogin(txtUsername.getText(), txtPassword.getText())) {
+//                Notification.informationAlert("", "Login complete ");
+                    //Load main lên
+                    this.username = loginB.getSession().getSessionName();
+                    this.password = loginB.getSession().getPassword();
+                    this.isAdmin = loginB.getSession().isAdmin();
+                    loadMain();
+                    //Ẩn login đi
+                    ((Node) event.getSource()).getScene().getWindow().hide();
+                } else {
+                    Notification.informationAlert("", "Login failed ");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
     @FXML
     void menuDragged(MouseEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,81 +1,98 @@
 package entity;
 
-import java.util.ArrayList;
-
 public class Provider {
-    private int providerID ;
-    private String name , address, contact ,description;
-    private ArrayList<Integer> productID ;
+    private int providerID, contactID;
+    private String name, shortName, address, description, phone, mail, fax, status, bankAccount;
+    private boolean active;
+    private int liquidate, totalMoney;
+    //liquidate - Nợ phải trả
 
-    public Provider(int providerID, String name, String address, String contact, String description,
-                    ArrayList<Integer> productID) {
+
+    public Provider(int providerID, int contactID, String name, String shortName, String address, String description,
+                    String phone, String mail, String fax, boolean goodProvider, boolean badProvider, boolean active,
+                    int liquidate, int totalMoney, String bankAccount) {
         this.providerID = providerID;
+        this.contactID = contactID;
         this.name = name;
+        this.shortName = shortName;
         this.address = address;
-        this.contact = contact;
         this.description = description;
-        this.productID = productID;
-    }
-
-    public Provider(int providerID, String name, String address, String contact, ArrayList<Integer> productID) {
-        this.providerID = providerID;
-        this.name = name;
-        this.address = address;
-        this.contact = contact;
-        this.productID = productID;
-    }
-
-    public Provider(int providerID, String name, String address, String contact) {
-        this.providerID = providerID;
-        this.name = name;
-        this.address = address;
-        this.contact = contact;
-    }
-
-    public Provider(int providerID, String name, String address, String contact, String description) {
-        this.providerID = providerID;
-        this.name = name;
-        this.address = address;
-        this.contact = contact;
-        this.description = description;
-    }
-
-    public Provider() {
-    }
-
-    @Override
-    public String toString() {
-        return "Provider{" +
-                "providerID=" + providerID +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", contact='" + contact + '\'' +
-                ", description='" + description + '\'' +
-                ", productID=" + productID +
-                '}';
+        this.phone = phone;
+        this.mail = mail;
+        this.fax = fax;
+        if (goodProvider) {
+            this.status = "Tốt";
+        }
+        if (badProvider) {
+            this.status = "Kém";
+        }
+        if (!goodProvider && !badProvider) {
+            this.status = "Chưa đánh giá";
+        }
+        this.active = active;
+        this.liquidate = liquidate;
+        this.totalMoney = totalMoney;
+        this.bankAccount = bankAccount;
     }
 
     public int getProviderID() {
         return providerID;
     }
 
+    public int getContactID() {
+        return contactID;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public String getShortName() {
+        return shortName;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public ArrayList<Integer> getProductID() {
-        return productID;
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public int getLiquidate() {
+        return liquidate;
+    }
+
+    public int getTotalMoney() {
+        return totalMoney;
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+    @Override
+    public String toString() {
+        return this.shortName + "-" + this.name;
     }
 }

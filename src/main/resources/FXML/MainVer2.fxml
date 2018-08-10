@@ -130,12 +130,64 @@
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                             </padding>
                         </AnchorPane>
+                        <VBox fx:id="itemOfFinance" maxHeight="90.0" maxWidth="217.0" translateX="-227.0"
+                              translateY="190.0">
+                            <children>
+                                <HBox fx:id="itemFinance1" onMouseClicked="#loadSalary" styleClass="hover-blue">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <children>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                            <image>
+                                                <Image url="@../Icon/salaryIcon.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Lương"
+                                              textAlignment="CENTER">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="itemFinance11" layoutX="10.0" layoutY="10.0" onMouseClicked="#loadFinance"
+                                      styleClass="hover-blue">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <children>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                            <image>
+                                                <Image url="@../Icon/FundIcon.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-font-weight: bold; -fx-font-size: 15px;" text="SỔ QUỸ"
+                                              textAlignment="CENTER">
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
                         <ScrollPane fx:id="menu" hbarPolicy="ALWAYS" maxWidth="217.0" prefViewportHeight="660.0"
                                     prefViewportWidth="200.0" style="-fx-border-color: transparent;" translateX="-217.0"
                                     vbarPolicy="ALWAYS">
                             <content>
-                                <VBox maxWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: WHITE;"
-                                      BorderPane.alignment="CENTER">
+                                <VBox maxWidth="-Infinity" prefWidth="200.0"
+                                      style="-fx-background-color: WHITE; -fx-border-color: black;">
                                     <padding>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                     </padding>
@@ -148,7 +200,7 @@
                                                 <Image url="@../BackGround/images.jpg"/>
                                             </image>
                                         </ImageView>
-                                        <HBox fx:id="itemDashboard" styleClass="hover-blue">
+                                        <HBox fx:id="itemDashboard" styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -174,7 +226,7 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox styleClass="hover-blue">
+                                        <HBox fx:id="itemSchedule" styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -197,7 +249,8 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox onMouseClicked="#loadEmployee" styleClass="hover-blue">
+                                        <HBox fx:id="itemEmployee" onMouseClicked="#loadEmployee"
+                                              styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -223,7 +276,7 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox styleClass="hover-blue">
+                                        <HBox fx:id="itemCustomer" styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -249,7 +302,8 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox styleClass="hover-blue">
+                                        <HBox fx:id="itemProvider" onMouseClicked="#loadProvider"
+                                              styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -275,7 +329,8 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox styleClass="hover-blue">
+                                        <HBox fx:id="itemWarehouse" onMouseClicked="#loadProduct"
+                                              styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -301,7 +356,8 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox onMouseClicked="#loadFinance" styleClass="hover-blue">
+                                        <HBox fx:id="itemFinance" onMouseClicked="#loadFinance" styleClass="hover-blue"
+                                              translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -327,7 +383,7 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox styleClass="hover-blue">
+                                        <HBox fx:id="itemDeal" styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -345,16 +401,16 @@
                                                     </image>
                                                 </ImageView>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      style="-fx-font-weight: bold; -fx-font-size: 15px;"
-                                                      text="GIAO DỊCH" textAlignment="CENTER">
+                                                      style="-fx-font-weight: bold; -fx-font-size: 15px;" text="BÁO CÁO"
+                                                      textAlignment="CENTER">
                                                     <HBox.margin>
                                                         <Insets left="10.0"/>
                                                     </HBox.margin>
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <Line endX="100.0" startX="-100.0"/>
-                                        <HBox styleClass="hover-blue">
+                                        <Line fx:id="itemLine" endX="100.0" startX="-100.0" translateX="-221.0"/>
+                                        <HBox fx:id="itemSetting" styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -380,7 +436,7 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox styleClass="hover-blue">
+                                        <HBox fx:id="itemSupport" styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -406,7 +462,8 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox onMouseClicked="#loadAboutMe" styleClass="hover-blue">
+                                        <HBox fx:id="itemAboutMe" onMouseClicked="#loadAboutMe" styleClass="hover-blue"
+                                              translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>
@@ -432,7 +489,7 @@
                                                 </Text>
                                             </children>
                                         </HBox>
-                                        <HBox styleClass="hover-blue">
+                                        <HBox fx:id="itemLogOut" styleClass="hover-blue" translateY="817.0">
                                             <padding>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </padding>

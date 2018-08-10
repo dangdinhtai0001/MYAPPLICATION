@@ -13,20 +13,33 @@ import java.util.regex.Pattern;
 
 public class Validation {
 
-    private static final String DELIMITERS = "[\\.\\(\\)\\*\\%\\!\\@\\#\\$\\^\\&\\*\\-\\_\\+\\=]+";
+    private static final String DELIMITERS = "[\\/\\.\\(\\)\\*\\%\\!\\@\\#\\$\\^\\&\\*\\-\\_\\+\\=]+";
+    private static final String PHONE_REGEX = "(09|01[2|6|8|9])+([0-9]{8})\\b";
+    private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+    private static final String NUMBER_REGEX = "[0-9]+";
+    private static final String WORD_REGEX = "[a-z A-Z]+";
+
 
     public void showErrors(HBox hBox, ImageView validate, String toolTip) {
         validate.setVisible(true);
         validate.setImage(new Image("/Icon/error-icon-28.png"));
-        hBox.setStyle("-fx-border-color: red;");
-        Tooltip.install(hBox, new MyToolTip(toolTip));
+        if (hBox != null) {
+            hBox.setStyle("-fx-border-color: red;");
+            Tooltip.install(hBox, new MyToolTip(toolTip));
+        } else {
+            Tooltip.install(validate, new MyToolTip(toolTip));
+        }
     }
 
     public void showWarning(HBox hBox, ImageView validate, String toolTip) {
         validate.setVisible(true);
         validate.setImage(new Image("/Icon/warning.png"));
-        hBox.setStyle("-fx-border-color: yellow;");
-        Tooltip.install(hBox, new MyToolTip(toolTip));
+        if (hBox != null) {
+            hBox.setStyle("-fx-border-color: yellow;");
+            Tooltip.install(hBox, new MyToolTip(toolTip));
+        } else {
+            Tooltip.install(validate, new MyToolTip(toolTip));
+        }
     }
 
     public void showValid(HBox hBox, ImageView validate) {
@@ -36,9 +49,16 @@ public class Validation {
 
     public boolean checkIsNumber(String text) {
         try {
-            Double aDouble = Double.parseDouble(text);
-            return true;
-        } catch (NumberFormatException | NullPointerException e) {
+            return text.matches(NUMBER_REGEX);
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
+    public boolean checkIsWord(String text) {
+        try {
+            return text.matches(WORD_REGEX);
+        } catch (NullPointerException e) {
             return false;
         }
     }
@@ -78,7 +98,7 @@ public class Validation {
         }
     }
 
-    public boolean checkContainRegex(String text) {
+    public boolean checkContainDelimiter(String text) {
         try {
             return Pattern.compile(DELIMITERS).matcher(text).find();
         } catch (NullPointerException e) {
@@ -118,6 +138,22 @@ public class Validation {
         try {
             return Character.isDigit(text.charAt(0));
         } catch (StringIndexOutOfBoundsException | NullPointerException e) {
+            return false;
+        }
+    }
+
+    public boolean checkPhoneNumber(String phone) {
+        try {
+            return phone.matches(PHONE_REGEX);
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
+    public boolean checkMail(String mail) {
+        try {
+            return mail.matches(EMAIL_REGEX);
+        } catch (NullPointerException e) {
             return false;
         }
     }

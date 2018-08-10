@@ -9,8 +9,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../CSS/LoginCSS.css" xmlns="http://javafx.com/javafx/10.0.1"
-      fx:controller="controller.LoginController">
+<VBox xmlns:fx="http://javafx.com/fxml/1" onKeyPressed="#keyBoardPressed" stylesheets="@../CSS/LoginCSS.css"
+      xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controller.LoginController">
     <HBox fx:id="menuBar" alignment="TOP_CENTER" onMouseDragged="#menuDragged" onMousePressed="#menuPressed">
         <HBox>
             <ImageView fitHeight="15.0" fitWidth="15.0" onMouseClicked="#minWindow" pickOnBounds="true"

@@ -1,10 +1,9 @@
-import java.sql.Date;
-import java.time.LocalDate;
+import businessLogicLayer.Validation;
 
 public class Clone {
     public static void main(String[] args) {
-        LocalDate localDate = LocalDate.now();
-        Date date = Date.valueOf(localDate);
-        System.out.println(date);
+        Validation validation = new Validation();
+        String s = "[a-z A-Z]+";
+        System.out.println("aaA21".matches(s));
     }
 }

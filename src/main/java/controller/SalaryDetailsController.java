@@ -1,7 +1,7 @@
 package controller;
 
-import businessLogicLayer.FinanceB;
 import businessLogicLayer.LoginB;
+import businessLogicLayer.SalaryB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -23,7 +23,7 @@ import java.sql.SQLException;
 public class SalaryDetailsController {
     private double x, y;
     private boolean checkValidateName, checkValidateMoney;
-    private FinanceB financeB;
+    private SalaryB salaryB;
     private LoginB loginB;
     private boolean isUpdate = false;
     private int salaryId;
@@ -50,7 +50,7 @@ public class SalaryDetailsController {
 
     public SalaryDetailsController() {
         try {
-            financeB = new FinanceB();
+            salaryB = new SalaryB();
             loginB = new LoginB();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -231,7 +231,7 @@ public class SalaryDetailsController {
 
     private boolean checkDuplicated() {
         try {
-            return financeB.checkDuplicatedSalary(txtName.getText(), txtMoney.getText());
+            return salaryB.checkDuplicatedSalary(txtName.getText(), txtMoney.getText());
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -242,7 +242,7 @@ public class SalaryDetailsController {
     private void addSalary() {
         String createdBy = loginB.getSession().getSessionName();
         try {
-            financeB.addSalary(txtName.getText(), txtMoney.getText(), txtDescription.getText(), createdBy);
+            salaryB.addSalary(txtName.getText(), txtMoney.getText(), txtDescription.getText(), createdBy);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -251,7 +251,7 @@ public class SalaryDetailsController {
     private void updateSalary() {
         String modifiedBy = loginB.getSession().getSessionName();
         try {
-            financeB.updateSalary(salaryId, txtName.getText(), txtMoney.getText(), txtDescription.getText(), modifiedBy);
+            salaryB.updateSalary(salaryId, txtName.getText(), txtMoney.getText(), txtDescription.getText(), modifiedBy);
         } catch (SQLException e) {
             e.printStackTrace();
         }

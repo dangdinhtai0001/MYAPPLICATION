@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="controller.ProductDetailsController">
+    <children>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+              text="Thông tin sản phẩm" textAlignment="CENTER">
+            <VBox.margin>
+                <Insets bottom="15.0" left="5.0" right="5.0" top="5.0"/>
+            </VBox.margin>
+            <effect>
+                <Reflection/>
+            </effect>
+        </Text>
+        <VBox alignment="CENTER">
+            <children>
+                <ImageView fx:id="imageProduct" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../Icon/Null.png"/>
+                    </image>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </VBox.margin>
+                </ImageView>
+                <HBox alignment="CENTER">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </VBox.margin>
+                    <children>
+                        <ImageView fx:id="validateImage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#openImage" text="Mở">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Icon/open.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </VBox.margin>
+        </VBox>
+        <HBox style="-fx-background-color: #CCCCCC;">
+            <children>
+                <VBox>
+                    <children>
+                        <HBox fx:id="hBoxName" alignment="CENTER_LEFT">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên sản phẩm">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <TextField fx:id="txtName">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <ImageView fx:id="validateName" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hBoxCode" alignment="CENTER_LEFT">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mã sản phẩm">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="8.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <TextField fx:id="txtCode">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <ImageView fx:id="validateCode" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hBoxQuantity" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="31.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <TextField fx:id="txtQuantity">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <ImageView fx:id="validateQuantity" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hBoxPrice" alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Giá sản phẩm">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="7.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <TextField fx:id="txtPrice">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <ImageView fx:id="validatePrice" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </HBox.margin>
+                </VBox>
+                <VBox>
+                    <children>
+                        <HBox fx:id="hBoxUnit" alignment="CENTER_LEFT">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Đơn vị ">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="55.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <ComboBox fx:id="comboUnit" prefWidth="150.0"/>
+                                <ImageView fx:id="validateUnit" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                                <Button mnemonicParsing="false" text="Thêm">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Icon/ADD.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hBoxProvider" alignment="CENTER_LEFT">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhà cung cấp">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="20.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <ComboBox fx:id="comboProvider" prefWidth="150.0"/>
+                                <ImageView fx:id="validateProvider" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                                <Button mnemonicParsing="false" text="Thêm">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Icon/ADD.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hBoxType" alignment="CENTER_LEFT">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nhóm sản phẩm">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <ComboBox fx:id="comboType" prefWidth="150.0"/>
+                                <ImageView fx:id="validateType" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                                <Button mnemonicParsing="false" text="Thêm">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Icon/ADD.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hBoxDescription" alignment="CENTER_LEFT">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="32.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Text>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true"/>
+                                <TextArea fx:id="txtDescription" maxHeight="50.0" maxWidth="250.0"/>
+                                <ImageView fx:id="validateDescription" fitHeight="20.0" fitWidth="20.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </HBox.margin>
+                </VBox>
+            </children>
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+        </HBox>
+        <ButtonBar prefHeight="40.0" prefWidth="200.0">
+            <buttons>
+                <Button mnemonicParsing="false" onAction="#actionOK" text="OK">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/submit.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button layoutX="614.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionCancel" text="cancel">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/Cancel.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </buttons>
+            <VBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </VBox.margin>
+        </ButtonBar>
+    </children>
+</VBox>

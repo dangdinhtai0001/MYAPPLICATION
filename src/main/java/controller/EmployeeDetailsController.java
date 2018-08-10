@@ -1,8 +1,8 @@
 package controller;
 
 import businessLogicLayer.EmployeeB;
-import businessLogicLayer.FinanceB;
 import businessLogicLayer.LoginB;
+import businessLogicLayer.SalaryB;
 import businessLogicLayer.Validation;
 import entity.Salary;
 import javafx.beans.value.ObservableValue;
@@ -27,7 +27,7 @@ import java.util.Date;
 
 public class EmployeeDetailsController {
     private EmployeeB employeeB;
-    private FinanceB financeB;
+    private SalaryB salaryB;
     private Validation validation;
     private LoginB loginB;
     private boolean isUpdate;
@@ -114,10 +114,11 @@ public class EmployeeDetailsController {
     private ImageView validateImage;
     @FXML
     private Label title;
+    private int contactID;
 
     public EmployeeDetailsController() {
         try {
-            financeB = new FinanceB();
+            salaryB = new SalaryB();
             validation = new Validation();
             loginB = new LoginB();
             employeeB = new EmployeeB();
@@ -145,7 +146,7 @@ public class EmployeeDetailsController {
 
         txtDateOfBegin.setPromptText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         //Set các lực chọn cho combobox
-        comboSalary.getItems().addAll(financeB.getAllSalary());
+        comboSalary.getItems().addAll(salaryB.getAllSalary());
         comboGender.getItems().addAll("Nam", "Nữ", "Khác");
 
         txtFacebook.textProperty().addListener(this::checkValidateFacebook);
@@ -163,7 +164,7 @@ public class EmployeeDetailsController {
         txtDateOfEnd.valueProperty().addListener(this::checkValidateEnd);
     }
 
-    public void isUpdate(boolean b) {
+    void isUpdate(boolean b) {
         isUpdate = b;
     }
 
@@ -240,7 +241,7 @@ public class EmployeeDetailsController {
         boolean b = employeeB.updateEmployee(txtName.getText(), comboGender.getValue(), txtDateOfBirth.getValue(),
                 txtAddress.getText(), txtPhone.getText(), txtFacebook.getText(), txtDateOfBegin.getValue(),
                 txtDateOfEnd.getValue(), url, txtAccount.getText(), txtPassword.getText(), checkBoxAdmin.isSelected(),
-                createdBy, getComboSalaryValue(), employeeID, oldSalaryID);
+                createdBy, getComboSalaryValue(), employeeID, oldSalaryID, contactID);
         if (b)
             Notification.informationAlert("Thông báo", "Cập nhật thành công");
         else
@@ -343,7 +344,7 @@ public class EmployeeDetailsController {
         } else if (validation.checkMaxLength(newValue, 50)) {
             validation.showErrors(hBoxName, validateName, "Tên không được quá 50 kí tự");
             checkValidName = false;
-        } else if (validation.checkContainRegex(newValue)) {
+        } else if (validation.checkContainDelimiter(newValue)) {
             validation.showErrors(hBoxName, validateName, "Tên không được chưa kí tự đặc biệt");
             checkValidName = false;
         } else {
@@ -353,17 +354,8 @@ public class EmployeeDetailsController {
     }
 
     private void checkValidatePhone(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-        if (validation.checkMaxLength(newValue, 20)) {
+        if (!validation.checkPhoneNumber(newValue)) {
             validation.showErrors(hBoxPhone, validatePhone, "Số điện thoại chỉ dài tối đa 20 kí tự");
-            checkValidPhone = false;
-        } else if (validation.checkContainSpace(newValue) && !(newValue.trim().length() == 0)) {
-            validation.showErrors(hBoxPhone, validatePhone, "Không được tồn tại khoảng trắng");
-            checkValidPhone = false;
-        } else if (validation.checkContainRegex(newValue)) {
-            validation.showErrors(hBoxPhone, validatePhone, "Số điện thoại không tồn tại kí tự đặc biệt");
-            checkValidPhone = false;
-        } else if (validation.checkContainWord(newValue)) {
-            validation.showErrors(hBoxPhone, validatePhone, "Số điện thoại không được chứa chữ");
             checkValidPhone = false;
         } else {
             validation.showValid(hBoxPhone, validatePhone);
@@ -481,35 +473,35 @@ public class EmployeeDetailsController {
         txtName.setText(s);
     }
 
-    public void loadPassword(String s) {
+    void loadPassword(String s) {
         if (s != null)
             txtPassword.setText(s);
     }
 
-    public void loadFacebook(String s) {
+    void loadFacebook(String s) {
         if (s != null)
             txtFacebook.setText(s);
     }
 
-    public void loadAddress(String s) {
+    void loadAddress(String s) {
         txtAddress.setText(s);
     }
 
-    public void loadPhone(String s) {
+    void loadPhone(String s) {
         if (s != null)
             txtPhone.setText(s);
     }
 
-    public void loadAccount(String s) {
+    void loadAccount(String s) {
         if (s != null)
             txtAccount.setText(s);
     }
 
-    public void loadImage(Image s) {
+    void loadImage(Image s) {
         employeeImage.setImage(s);
     }
 
-    public void loadGender(String s) {
+    void loadGender(String s) {
         for (String ignored : comboGender.getItems()) {
             if (ignored.equals(s)) {
                 comboGender.getSelectionModel().select(ignored);
@@ -517,7 +509,7 @@ public class EmployeeDetailsController {
         }
     }
 
-    public void loadSalary(int salaryId) {
+    void loadSalary(int salaryId) {
         for (Salary salary : comboSalary.getItems()) {
             if (salary.getId() == salaryId) {
                 comboSalary.getSelectionModel().select(salary);
@@ -525,19 +517,19 @@ public class EmployeeDetailsController {
         }
     }
 
-    public void loadDateOfBirth(Date s) {
+    void loadDateOfBirth(Date s) {
         txtDateOfBirth.setValue(Instant.ofEpochMilli(s.getTime())
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate());
     }
 
-    public void loadDateOfBegin(Date s) {
+    void loadDateOfBegin(Date s) {
         txtDateOfBegin.setValue(Instant.ofEpochMilli(s.getTime())
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate());
     }
 
-    public void loadDateOfEnd(Date s) {
+    void loadDateOfEnd(Date s) {
         try {
             txtDateOfEnd.setValue(Instant.ofEpochMilli(s.getTime())
                     .atZone(ZoneId.systemDefault())
@@ -547,23 +539,27 @@ public class EmployeeDetailsController {
         }
     }
 
-    public void isAdmin(boolean b) {
+    void isAdmin(boolean b) {
         checkBoxAdmin.setSelected(b);
     }
 
-    public void setTitle(String s) {
+    void setTitle(String s) {
         title.setText(s);
     }
 
-    public void loadEmployeeID(int i) {
+    void loadEmployeeID(int i) {
         employeeID = i;
     }
 
-    public void loadOldSalaryID(int i) {
+    void loadOldSalaryID(int i) {
         oldSalaryID = i;
     }
 
-    public void loadUrl(String s) {
+    void loadContactID(int i) {
+        contactID = i;
+    }
+
+    void loadUrl(String s) {
         url = s;
     }
 }

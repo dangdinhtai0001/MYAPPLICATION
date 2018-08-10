@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1"
+      fx:controller="controller.ProviderController">
+    <children>
+        <HBox>
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30px; -fx-font-weight: bold;"
+                      text="Nhà Cung Cấp">
+                    <effect>
+                        <Reflection bottomOpacity="0.07" fraction="0.55" topOpacity="0.52"/>
+                    </effect>
+                </Text>
+            </children>
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER">
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </VBox.margin>
+            <children>
+                <BarChart fx:id="barChart" maxHeight="-Infinity" maxWidth="-Infinity"
+                          title="Tổng giá trị sản phẩm và số tiền đã trả" titleSide="BOTTOM">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT"/>
+                    </yAxis>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </BarChart>
+                <VBox alignment="TOP_CENTER">
+                    <children>
+                        <Label fx:id="lblTotalMoney">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <PieChart fx:id="totalMoneyPieChart" legendSide="RIGHT" maxHeight="-Infinity"
+                                  maxWidth="-Infinity" title="Tương quan giá trị từng nhà cung cấp" titleSide="BOTTOM"/>
+                    </children>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </VBox>
+                <VBox alignment="TOP_CENTER">
+                    <children>
+                        <Label fx:id="lblLiquidate">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <PieChart fx:id="liquidatePieChart" legendSide="RIGHT" maxHeight="-Infinity"
+                                  maxWidth="-Infinity" title="Tương quan số tiền còn nợ" titleSide="BOTTOM"/>
+                    </children>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="688.0">
+                    <children>
+                        <Label text="Tìm Kiếm">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <TextField fx:id="txtFilter" prefHeight="25.0" prefWidth="590.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                        </TextField>
+                    </children>
+                </HBox>
+                <Button mnemonicParsing="false" onAction="#addProvider" prefWidth="100.0" text="THÊM">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/ADD.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button layoutX="1072.0" layoutY="20.0" mnemonicParsing="false" onAction="#delProvider"
+                        prefWidth="100.0" text="XÓA">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/DELETE.jpg"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button layoutX="972.0" layoutY="20.0" mnemonicParsing="false" onAction="#updateProvider"
+                        prefWidth="100.0" text="SỬA">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/EDIT.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button layoutX="948.0" layoutY="20.0" mnemonicParsing="false" onAction="#stopActive"
+                        text="Dừng hợp tác">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/teminate.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button layoutX="1068.0" layoutY="20.0" mnemonicParsing="false" onAction="#continueActive"
+                        text="Hợp tác">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/hopTac.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button layoutX="1072.0" layoutY="20.0" mnemonicParsing="false" onAction="#showQuotation"
+                        prefWidth="100.0" text="BÁO GIÁ">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/price.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button layoutX="1072.0" layoutY="20.0" mnemonicParsing="false" onAction="#showLiquidate"
+                        text="LỊCH SỬ TRẢ NỢ">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Icon/Money.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </VBox.margin>
+        </HBox>
+        <VBox>
+            <children>
+                <ScrollPane>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                    <content>
+                        <TableView fx:id="tableProvider">
+                            <columns>
+                                <TableColumn fx:id="number" prefWidth="30.0" text="STT"/>
+                                <TableColumn fx:id="nameCol" prefWidth="200.0" text="Tên Nhà Cung Cấp"/>
+                                <TableColumn fx:id="shortNameCol" prefWidth="120.0" text="Mã Nhà Cung Cấp"/>
+                                <TableColumn fx:id="addressCol" prefWidth="200.0" text="Địa chỉ"/>
+                                <TableColumn fx:id="phoneCol" prefWidth="170.0" text="Điện Thoại"/>
+                                <TableColumn fx:id="mailCol" prefWidth="150.0" text="E-Mail"/>
+                                <TableColumn fx:id="faxCol" prefWidth="150.0" text="Fax"/>
+                                <TableColumn fx:id="bankAccountCol" prefWidth="200.0" text="Số tài khoản"/>
+                                <TableColumn fx:id="statusCol" prefWidth="100.0" text="Trạng Thái"/>
+                                <TableColumn fx:id="activeCol" prefWidth="100.0" text="Đang Hợp Tác"/>
+                                <TableColumn fx:id="liquidateCol" prefWidth="150.0" text="Nợ Cần Trả Hiện Tại"/>
+                                <TableColumn fx:id="totalCol" prefWidth="150.0" text="Tổng Mua"/>
+                                <TableColumn fx:id="descriptionCol" prefWidth="200.0" text="Ghi chú"/>
+                            </columns>
+                        </TableView>
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </children>
+</VBox>

@@ -49,22 +49,22 @@ public class EmployeeB {
                     imageLink, username, password, isAdmin, createdBy, Integer.parseInt(salaryId));
             return true;
         } catch (SQLException e) {
+            e.printStackTrace();
             return false;
 
-        } catch (ClassNotFoundException e) {
-            return false;
         }
     }
 
     public boolean updateEmployee(String name, String gender, LocalDate dateOfBirth, String address, String phoneNumber,
                                   String facebook, LocalDate dateOfBegin, LocalDate dateOfEnd, String imageLink, String username,
-                                  String password, boolean isAdmin, String createdBy, String salaryId, int employeeID, int oldSalaryID) {
+                                  String password, boolean isAdmin, String createdBy, String salaryId, int employeeID, int oldSalaryID, int contactID) {
         try {
             employeeDA.updateEmployee(name, gender, convertDatetoSQLDATE(dateOfBirth), address, phoneNumber, facebook,
                     convertDatetoSQLDATE(dateOfBegin), convertDatetoSQLDATE(dateOfEnd),
-                    imageLink, username, password, isAdmin, createdBy, Integer.parseInt(salaryId), employeeID, oldSalaryID);
+                    imageLink, username, password, isAdmin, createdBy, Integer.parseInt(salaryId), employeeID, oldSalaryID, contactID);
             return true;
         } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import presentation.Notification;
 
 import java.io.IOException;
@@ -80,7 +81,7 @@ public class EmployeeController {
 
             //làm cột số thứ tự
             employeeNumber.setCellValueFactory(param -> new ReadOnlyObjectWrapper(String.valueOf(employeeTable.getItems().indexOf(param.getValue()) + 1)));
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -97,7 +98,7 @@ public class EmployeeController {
             long count = (long) employeeTable.getColumns().size();
             for (int i = 0; i < employeeTable.getItems().size(); i++) {
                 for (int j = 0; j < count; j++) {
-                    String entry = "" + employeeTable.getColumns().get(j).getCellData(i);
+                    String entry = String.valueOf(employeeTable.getColumns().get(j).getCellData(i));
                     if (entry.toLowerCase().contains(value)) {
                         subentries.add(employeeTable.getItems().get(i));
                         break;
@@ -185,6 +186,7 @@ public class EmployeeController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EmployeeDetails.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         EmployeeDetailsController controller = loader.getController();
@@ -196,7 +198,7 @@ public class EmployeeController {
     private void refreshEmployeeTable() {
         try {
             listEmployee = employeeB.getAllEmployee();
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         employeeTable.getItems().clear();
@@ -233,6 +235,7 @@ public class EmployeeController {
             controller.loadEmployeeID(employeeTable.getSelectionModel().getSelectedItem().getId());
             controller.loadOldSalaryID(employeeTable.getSelectionModel().getSelectedItem().getSalaryID());
             controller.loadUrl(employeeTable.getSelectionModel().getSelectedItem().getImageLink());
+            controller.loadContactID(employeeTable.getSelectionModel().getSelectedItem().getContactID());
 
             controller.setTitle("Cập nhật thông tin");
             stage.setOnHiding(event1 -> {

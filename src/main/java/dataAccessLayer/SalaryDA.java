@@ -4,12 +4,14 @@ import entity.Salary;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class FinanceDA {
+public class SalaryDA {
     private Connection connection;
 
-    public FinanceDA() throws SQLException, ClassNotFoundException {
+    public SalaryDA() throws SQLException, ClassNotFoundException {
         connection = ConnectionUlti.getConnection();
     }
 
@@ -62,5 +64,19 @@ public class FinanceDA {
 
         statement.executeUpdate();
         statement.close();
+    }
+
+    public Map<Number, Number> countEmployee() throws SQLException {
+        Map<Number, Number> map = new HashMap<>();
+        String sql = "SELECT `employee-salary`.`salaryID`, COUNT(employee.employeeID) FROM `employee`, `employee-salary`  \n" +
+                "WHERE employee.employeeID = `employee-salary`.`employeeID` GROUP by `employee-salary`.`salaryID`";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()) {
+            map.put(resultSet.getInt(1), resultSet.getInt(2));
+        }
+        statement.close();
+        return map;
     }
 }

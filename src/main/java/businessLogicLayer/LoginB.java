@@ -35,8 +35,6 @@ public class LoginB {
             return employeeDA.checkDuplicatedAccount(username);
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return false;
     }
